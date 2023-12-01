@@ -1,0 +1,31 @@
+ALGORITHM calculerProduitScalaire
+VAR
+    set_declarations
+    tab_V1 : ARRAY_OF INTEGER[n]; // tableau vecteur 1
+    tab_V2 : ARRAY_OF INTEGER[n]; // tableau vecteur 2
+BEGIN
+    FUNCTION dot_Products(monTabV1, monTabV2 : ARRAY_OF INTEGER) : INTEGER
+    VAR
+        taille, produitScalaire : INTEGER;
+    BEGIN
+        taille:= monTabV1.lenght()-1;
+        FOR i FROM 0 TO taille STEP 1  DO
+            produitScalaire := produitScalaire + monTabV1[i]* monTabV2[i];
+        END_FOR
+        RETURN produitScalaire;
+    END
+    Write("Donner la dimension des deux vecteurs ");
+    Read(n);
+    FOR i FROM 0 TO n STEP 1  DO
+        Write("Donner l'élément du vecteur tab_V1 à la position", i)
+        Read(tab_V1[i])
+        Write("Donner l'élément du vecteur tab_V2 à la position", i)
+        Read(tab_V2[i])
+    END_FOR
+    IF (dot_Products (tab_V1,tab_V2)=== 0)
+        Write( " Les deux vecteurs sont orthoganaux.")
+    ELSE
+        Write( " Les deux vecteurs ne sont pas orthoganaux.")
+    END_IF
+END
+

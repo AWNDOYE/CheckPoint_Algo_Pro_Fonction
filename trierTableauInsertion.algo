@@ -1,0 +1,24 @@
+ALGORITHM trierTableau
+VAR
+    monTab : ARRAY_OF INTEGER[n];
+    valEnCours :INTEGER;
+BEGIN
+    Write(" Saisir les éléments du tableau à trier ");
+    Read(monTab);
+    valEnCours := 0;
+    FOR i FROM 1 TO n-1 STEP 1  DO
+        valEnCours := monTab[i];
+        j := i-1;
+        swapValeurs (j,monTab:ARRAY_OF INTEGER,valEnCours);
+        monTab[j+1] := valEnCours;
+    END_FOR
+END
+// procédure permuter valeurs
+PROCEDURE swapValeurs(j : INTEGER, monTabEnCours : ARRAY_OF INTEGER, valMax : INTEGER)
+VAR
+BEGIN
+    WHILE (j>=0 and monTabEnCours[j] > valMax) DO
+        monTabEnCours[j+1] := monTabEnCours[j];
+        j := j-1;  
+    END_WHILE
+END
